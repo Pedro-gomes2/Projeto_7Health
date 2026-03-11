@@ -6,6 +6,7 @@ import { PedidoModule } from './Pedido/pedido.module';
 import { Usuario } from './usuario/entities/usuario.entity';
 import { Produto } from './produto/entities/produto.entity';
 import { Pedido } from './Pedido/entities/pedido.entity';
+import { AuthModule } from './auth/auth.module';
 
 
 @Module({
@@ -24,6 +25,7 @@ import { Pedido } from './Pedido/entities/pedido.entity';
 
     UsuarioModule,
     ProdutoModule,
+    AuthModule,
     PedidoModule,
   ],
 })
