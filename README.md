@@ -1,98 +1,133 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# 7Health (Seven Health) 🌱
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+[cite_start]O **7Health** é um aplicativo de delivery fitness desenvolvido para pessoas que buscam manter uma alimentação saudável e equilibrada no dia a dia[cite: 25, 27, 29]. [cite_start]A plataforma conecta usuários a opções de refeições nutritivas, facilitando a escolha de cardápios saudáveis mesmo em rotinas corridas[cite: 30, 32].
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+---
 
-## Description
+## 📋 Sobre o Projeto
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+[cite_start]Este projeto foi solicitado pela **Generation Brasil** para compor o escopo do projeto integrador (Desafio 02)[cite: 20, 23]. [cite_start]Mais do que um simples delivery, o 7Health é um aliado para quem deseja cuidar da saúde através da alimentação e melhorar seu estilo de vida[cite: 32, 35].
 
-## Project setup
+### Principais Objetivos:
+* [cite_start]Conectar usuários a opções de comidas fitness e saudáveis[cite: 30].
+* [cite_start]Proporcionar uma interface simples e intuitiva para exploração de pratos[cite: 31].
+* [cite_start]Reunir opções específicas para praticantes de atividades físicas[cite: 33].
+* [cite_start]Garantir refeições que equilibram sabor, praticidade e valor nutricional[cite: 34].
 
-```bash
-$ npm install
-```
+---
 
-## Compile and run the project
+## 🛠️ Tecnologias Utilizadas
 
-```bash
-# development
-$ npm run start
+[cite_start]A stack tecnológica escolhida foca em robustez e escalabilidade no desenvolvimento backend[cite: 36]:
 
-# watch mode
-$ npm run start:dev
+| Item | Tecnologia |
+| :--- | :--- |
+| **Linguagem** | [cite_start]TypeScript [cite: 37] |
+| **Framework** | [cite_start]Nest.js [cite: 37] |
+| **ORM** | [cite_start]TypeORM [cite: 37] |
+| **Banco de Dados** | [cite_start]MySQL [cite: 37] |
+| **Servidor / Testes** | [cite_start]Insomnia [cite: 37] |
 
-# production mode
-$ npm run start:prod
-```
+---
 
-## Run tests
+## 🗄️ Estrutura de Dados
 
-```bash
-# unit tests
-$ npm run test
+O banco de dados (`db_7health`) foi estruturado através do seguinte Diagrama Entidade-Relacionamento:
 
-# e2e tests
-$ npm run test:e2e
 
-# test coverage
-$ npm run test:cov
-```
 
-## Deployment
+### Detalhamento das Entidades:
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
+* [cite_start]**tb_usuario:** Armazena dados de cadastro (nome, email, senha, telefone) e timestamp de criação da conta[cite: 44, 51].
+* **tb_produtos:** Contém as informações dos pratos, incluindo descrição, preço e contagem de calorias[cite: 46, 53].
+* **tb_pedido:** Gerencia as transações, atrelando usuários aos produtos e registrando a quantidade e o valor total[cite: 42, 49].
 
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+---
 
-```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
-```
+## 🚀 Implementações Futuras
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+[cite_start]O roteiro de evolução do projeto inclui as seguintes funcionalidades[cite: 54]:
+* [cite_start]**Logística:** Opções de entrega em domicílio ou retirada na loja física[cite: 56].
+* **Interatividade:** Sistema de avaliações para refeições e estabelecimentos[cite: 57].
+* [cite_start]**Experiência do Usuário:** Filtros de busca avançados e acompanhamento do status do pedido[cite: 58, 60].
+* [cite_start]**Histórico:** Possibilidade de visualizar pedidos realizados anteriormente[cite: 59].
+* **Pagamentos:** Integração de métodos de pagamentos digitais nativos[cite: 61].
+* [cite_start]**Ecossistema:** Conexão entre o aplicativo 7Health e o aplicativo 7Fit[cite: 62].
 
-## Resources
+---
 
-Check out a few resources that may come in handy when working with NestJS:
+## 👥 Equipe (Grupo 05)
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+* [cite_start]Ana Beatriz Carvalho [cite: 2]
+* Daniella Camillo [cite: 3]
+* [cite_start]João Pedro [cite: 4]
+* [cite_start]Júlia Lima [cite: 5]
+* Larissa Mendonça [cite: 6]
+* [cite_start]Lucas Ribeiro [cite: 7]
+* [cite_start]Matheus Tiago Canellas [cite: 8]# 7Health (Seven Health) 🌱
 
-## Support
+[cite_start]O **7Health** é um aplicativo de delivery fitness desenvolvido para pessoas que buscam manter uma alimentação saudável e equilibrada no dia a dia[cite: 25, 27, 29]. [cite_start]A plataforma conecta usuários a opções de refeições nutritivas, facilitando a escolha de cardápios saudáveis mesmo em rotinas corridas[cite: 30, 32].
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+---
 
-## Stay in touch
+## 📋 Sobre o Projeto
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+[cite_start]Este projeto foi solicitado pela **Generation Brasil** para compor o escopo do projeto integrador (Desafio 02)[cite: 20, 23]. [cite_start]Mais do que um simples delivery, o 7Health é um aliado para quem deseja cuidar da saúde através da alimentação e melhorar seu estilo de vida[cite: 32, 35].
 
-## License
+### Principais Objetivos:
+* [cite_start]Conectar usuários a opções de comidas fitness e saudáveis[cite: 30].
+* [cite_start]Proporcionar uma interface simples e intuitiva para exploração de pratos[cite: 31].
+* [cite_start]Reunir opções específicas para praticantes de atividades físicas[cite: 33].
+* [cite_start]Garantir refeições que equilibram sabor, praticidade e valor nutricional[cite: 34].
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+---
+
+## 🛠️ Tecnologias Utilizadas
+
+[cite_start]A stack tecnológica escolhida foca em robustez e escalabilidade no desenvolvimento backend[cite: 36]:
+
+| Item | Tecnologia |
+| :--- | :--- |
+| **Linguagem** | [cite_start]TypeScript [cite: 37] |
+| **Framework** | [cite_start]Nest.js [cite: 37] |
+| **ORM** | [cite_start]TypeORM [cite: 37] |
+| **Banco de Dados** | [cite_start]MySQL [cite: 37] |
+| **Servidor / Testes** | [cite_start]Insomnia [cite: 37] |
+
+---
+
+## 🗄️ Estrutura de Dados
+
+O banco de dados (`db_7health`) foi estruturado através do seguinte Diagrama Entidade-Relacionamento:
+
+
+
+### Detalhamento das Entidades:
+
+* [cite_start]**tb_usuario:** Armazena dados de cadastro (nome, email, senha, telefone) e timestamp de criação da conta[cite: 44, 51].
+* **tb_produtos:** Contém as informações dos pratos, incluindo descrição, preço e contagem de calorias[cite: 46, 53].
+* **tb_pedido:** Gerencia as transações, atrelando usuários aos produtos e registrando a quantidade e o valor total[cite: 42, 49].
+
+---
+
+## 🚀 Implementações Futuras
+
+[cite_start]O roteiro de evolução do projeto inclui as seguintes funcionalidades[cite: 54]:
+* [cite_start]**Logística:** Opções de entrega em domicílio ou retirada na loja física[cite: 56].
+* **Interatividade:** Sistema de avaliações para refeições e estabelecimentos[cite: 57].
+* [cite_start]**Experiência do Usuário:** Filtros de busca avançados e acompanhamento do status do pedido[cite: 58, 60].
+* [cite_start]**Histórico:** Possibilidade de visualizar pedidos realizados anteriormente[cite: 59].
+* **Pagamentos:** Integração de métodos de pagamentos digitais nativos[cite: 61].
+* [cite_start]**Ecossistema:** Conexão entre o aplicativo 7Health e o aplicativo 7Fit[cite: 62].
+
+---
+
+## 👥 Equipe (Grupo 05)
+
+* [cite_start]Ana Beatriz Carvalho [cite: 2]
+* Daniella Camillo [cite: 3]
+* [cite_start]João Pedro [cite: 4]
+* [cite_start]Júlia Lima [cite: 5]
+* Larissa Mendonça [cite: 6]
+* [cite_start]Lucas Ribeiro [cite: 7]
+* [cite_start]Matheus Tiago Canellas [cite: 8]
