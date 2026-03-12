@@ -2,29 +2,39 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Usuario } from '../entities/usuario.entity';
+import { Bcrypt } from '../../auth/bcrypt/bcript';
 
 
 
 @Injectable()
 export class UsuarioService {
-  async findByUsuario(username: string): Promise<Usuario | null> {
-  return this.usuarioRepository.findOne({
-    where: { nome: username }
-  });
-}
-
+ 
+  
   constructor(
     @InjectRepository(Usuario)
     private usuarioRepository: Repository<Usuario>,
+    private bcrypt: Bcrypt
   ) {}
 
-  create(usuario: Usuario): Promise<Usuario> {
+
+  //Buscar por Usuario
+  async findByEmail(email: string): Promise<Usuario | null> {
+  // Ajustado para buscar na coluna 'email' da sua entidade
+  return await this.usuarioRepository.findOne({
+    where: { email: email }
+  });
+}
+
+  //Buscar Todos
+  async findAll(): Promise<Usuario[]> {
+    return this.usuarioRepository.find();
+  }
+
+  async create(usuario: Usuario): Promise<Usuario> {
+    usuario.senha = await this.bcrypt.criptografarSenha(usuario.senha);
     return this.usuarioRepository.save(usuario);
   }
 
-  findAll(): Promise<Usuario[]> {
-    return this.usuarioRepository.find();
-  }
 
   async findOne(id: number): Promise<Usuario> {
 
@@ -43,7 +53,6 @@ export class UsuarioService {
 
     usuarioExistente.nome = usuario.nome ?? usuarioExistente.nome;
     usuarioExistente.email = usuario.email ?? usuarioExistente.email;
-    usuarioExistente.senha = usuario.senha ?? usuarioExistente.senha;
     usuarioExistente.telefone = usuario.telefone ?? usuarioExistente.telefone;
 
     return this.usuarioRepository.save(usuarioExistente);

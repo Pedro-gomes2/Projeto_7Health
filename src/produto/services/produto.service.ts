@@ -1,6 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { ILike, Repository } from 'typeorm';
 import { Produto } from '../entities/produto.entity';
 
 
@@ -50,4 +50,18 @@ export class ProdutoService {
 
     await this.produtoRepository.remove(produto);
   }
+
+  async findByDescricao(descricao: string): Promise<Produto[]> {
+    return await this.produtoRepository.find({
+      where: {
+        descricao: ILike(`%${descricao}%`) // O símbolo % permite buscar em qualquer parte do texto
+      },
+      relations: {
+        categoria: true,
+        usuario: true
+      }
+    });
+  }
+
+
 }

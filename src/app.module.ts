@@ -2,11 +2,12 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsuarioModule } from './usuario/usuario.module';
 import { ProdutoModule } from './produto/produto.module';
-import { PedidoModule } from './Pedido/pedido.module';
 import { Usuario } from './usuario/entities/usuario.entity';
 import { Produto } from './produto/entities/produto.entity';
-import { Pedido } from './Pedido/entities/pedido.entity';
 import { AuthModule } from './auth/auth.module';
+import { CategoriaModule } from './Categoria/categoria.module';
+import { Categoria } from './Categoria/entities/categoria.entity';
+import { UsuarioLogin } from './auth/entities/usuariologin.entities';
 
 
 @Module({
@@ -18,15 +19,14 @@ import { AuthModule } from './auth/auth.module';
       username: 'root',
       password: 'root',
       database: 'db_7health',
-      entities:[Pedido,Produto, Usuario],
+      entities:[Categoria,Produto, Usuario,UsuarioLogin],
       autoLoadEntities: true,
       synchronize: true,
     }),
-
     UsuarioModule,
     ProdutoModule,
     AuthModule,
-    PedidoModule,
+    CategoriaModule,
   ],
 })
 export class AppModule {}

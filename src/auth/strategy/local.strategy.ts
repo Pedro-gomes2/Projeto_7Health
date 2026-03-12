@@ -12,14 +12,14 @@ export class LocalStrategy extends PassportStrategy(Strategy) {
 
     constructor(private readonly authService: AuthService) {
         super(); 
-        this._usernameField = 'usuario';
+        this._usernameField = 'email';
         this._passwordField = 'senha';
     }
 
-    async validate(usuario: string, senha: string): Promise<any> {
-        const validaUsuario = await this.authService.validateUser(usuario, senha);
+    async validate(email: string, senha: string): Promise<any> {
+        const validaUsuario = await this.authService.validateUser(email, senha);
         if (!validaUsuario) {
-            throw new UnauthorizedException("Usuário e/ou senha incorretos!");
+            throw new UnauthorizedException("Email e/ou senha incorretos!");
         }
         return validaUsuario;
     }

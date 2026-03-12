@@ -1,5 +1,6 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
-import { Pedido } from '../../Pedido/entities/pedido.entity';
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany, ManyToOne } from 'typeorm';
+import { Categoria } from '../../Categoria/entities/categoria.entity';
+import { Usuario } from '../../usuario/entities/usuario.entity';
 
 
 @Entity('tb_produtos')
@@ -20,7 +21,17 @@ export class Produto {
   @Column()
   calorias: number;
 
-  @OneToMany(() => Pedido, (pedido) => pedido.produto)
-  pedidos: Pedido[];
+  @ManyToOne(() => Categoria, (categoria) => categoria.produto, {
+    onDelete: 'CASCADE'
+  })
+  categoria: Categoria;
+
+  // Muitos produtos são cadastrados por um usuário (N:1)
+  @ManyToOne(() => Usuario, (usuario) => usuario.produto, {
+    onDelete: 'CASCADE'
+  })
+  usuario: Usuario;
+
+
 
 }

@@ -3,6 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { Usuario } from './entities/usuario.entity';
 import { UsuarioController } from './controller/usuario.controller';
 import { UsuarioService } from './service/usuario.service';
+import { Bcrypt } from '../auth/bcrypt/bcript';
 
 
 @Module({
@@ -10,7 +11,7 @@ import { UsuarioService } from './service/usuario.service';
     TypeOrmModule.forFeature([Usuario]),
   ],
   controllers: [UsuarioController],
-  providers: [UsuarioService],
-  exports: [UsuarioService],
+  providers: [UsuarioService,Bcrypt],
+  exports: [TypeOrmModule,UsuarioService],
 })
 export class UsuarioModule {}

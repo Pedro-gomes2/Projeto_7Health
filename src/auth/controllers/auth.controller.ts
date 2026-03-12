@@ -10,8 +10,8 @@ export class AuthController {
     @UseGuards(LocalAuthGuard)//é um guard que valida credenciais de login (usuário/senha).
     @HttpCode(HttpStatus.OK)
     @Post('/logar')
-    login(@Body() usuario: UsuarioLogin): Promise<any> {
-        return this.authService.login(usuario);
+    login(@Body() email: UsuarioLogin): Promise<any> {
+        return this.authService.login(email);
     }
 
 }
