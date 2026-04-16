@@ -13,25 +13,56 @@ export class ProdutoService {
     private produtoRepository: Repository<Produto>,
   ) {}
 
+
+
+  //criar 
   create(produto: Produto): Promise<Produto> {
     return this.produtoRepository.save(produto);
   }
 
-  findAll(): Promise<Produto[]> {
-    return this.produtoRepository.find();
-  }
 
-  async findOne(id: number): Promise<Produto> {
-
-    const produto = await this.produtoRepository.findOneBy({ id });
-
-    if (!produto) {
-      throw new NotFoundException('Produto não encontrado');
+  //Procurar 
+  async findAll(): Promise<Produto[]> {
+  return await this.produtoRepository.find({
+    relations: {
+      categoria: true,
+      usuario: true
     }
+  });
+}
+async findAllOrderByCalorias(): Promise<Produto[]> {
+  return await this.produtoRepository.find({
+    relations: {
+      categoria: true,
+      usuario: true
+    },
+    order: {
+      calorias: 'ASC' // 'ASC' para Ascendente (menor para o maior)
+    }
+  });
+}
 
-    return produto;
+
+
+
+//Procurar por ID
+  async findOne(id: number): Promise<Produto> {
+  const produto = await this.produtoRepository.findOne({
+    where: { id },
+    relations: {
+      categoria: true,
+      usuario: true
+    }
+  });
+
+  if (!produto) {
+    throw new NotFoundException('Produto não encontrado');
   }
+  return produto;
+}
 
+
+  
   async update(id: number, produto: Produto): Promise<Produto> {
 
     const produtoExistente = await this.findOne(id);

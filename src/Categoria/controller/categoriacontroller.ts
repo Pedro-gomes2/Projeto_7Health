@@ -1,8 +1,10 @@
 import { Body, Controller, Delete, Get, HttpCode, HttpStatus, Param, ParseIntPipe, Post, Put, UseGuards } from '@nestjs/common';
 import { Categoria } from '../entities/categoria.entity';
-import { JwtAuthGuard } from '../../auth/guard/jwt-auth.guard';
-import { CategoriaService } from '../service/categoria.service';
 
+import { CategoriaService } from '../service/categoria.service';
+import { ApiTags } from '@nestjs/swagger';
+
+@ApiTags('Categoria')
 @Controller("/categorias")
 export class CategoriaController {
   constructor(private readonly categoriaService: CategoriaService) { }

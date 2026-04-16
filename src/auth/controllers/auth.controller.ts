@@ -1,7 +1,8 @@
 import { Body, Controller, HttpCode, HttpStatus, Post, UseGuards } from '@nestjs/common';
-import { LocalAuthGuard } from '../guard/local-auth.guard';
 import { AuthService } from '../services/auth.service';
+import { LocalAuthGuard } from '../guard/local-auth.guard';
 import { UsuarioLogin } from '../entities/usuariologin.entities';
+
 
 @Controller("/usuarios")
 export class AuthController {
@@ -10,8 +11,8 @@ export class AuthController {
     @UseGuards(LocalAuthGuard)//é um guard que valida credenciais de login (usuário/senha).
     @HttpCode(HttpStatus.OK)
     @Post('/logar')
-    login(@Body() email: UsuarioLogin): Promise<any> {
-        return this.authService.login(email);
+    login(@Body() usuario: UsuarioLogin): Promise<any> {
+        return this.authService.login(usuario);
     }
 
 }

@@ -1,11 +1,12 @@
 import { Body, Controller, Delete, Get, Param, Post, Put, UseGuards } from "@nestjs/common";
 import { ProdutoService } from "../services/produto.service";
 import { Produto } from "../entities/produto.entity";
-import { JwtAuthGuard } from "../../auth/guard/jwt-auth.guard";
+import { ApiTags } from "@nestjs/swagger";
 
 
 
 
+@ApiTags('Produto')
 @Controller('/produtos')
 export class ProdutoController {
 
@@ -20,6 +21,12 @@ export class ProdutoController {
   findAll() {
     return this.produtoService.findAll();
   }
+
+  @Get('/calorias/ordem')
+  findAllOrderByCalorias(): Promise<Produto[]> {
+  return this.produtoService.findAllOrderByCalorias();
+}
+
 
   @Get('/:id')
   findOne(@Param('id') id: number) {

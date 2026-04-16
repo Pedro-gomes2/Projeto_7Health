@@ -10,8 +10,8 @@ import { Bcrypt } from '../auth/bcrypt/bcript';
   imports: [
     TypeOrmModule.forFeature([Usuario]),
   ],
-  controllers: [UsuarioController],
   providers: [UsuarioService,Bcrypt],
+  controllers: [UsuarioController],
   exports: [TypeOrmModule,UsuarioService],
 })
 export class UsuarioModule {}

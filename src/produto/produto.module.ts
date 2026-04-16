@@ -11,5 +11,6 @@ import { ProdutoService } from "./services/produto.service";
   ],
   controllers: [ProdutoController],
   providers: [ProdutoService],
+  exports: [TypeOrmModule],
 })
 export class ProdutoModule {}
